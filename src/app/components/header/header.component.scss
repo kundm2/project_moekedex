@@ -1,0 +1,7 @@
+@import '../../../styles';
+
+//
+.header-bg {
+  background: $dark-red;
+  background: linear-gradient(90deg, $red 0%, $dark-red 100%);
+}
