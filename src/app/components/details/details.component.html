@@ -4,9 +4,9 @@
       <img src="https://projectpokemon.org/images/normal-sprite/{{pokemon.name.replace('-', '_')}}.gif"  alt="Sprite of {{pokemon.name | titlecase}}">
     </div>
     <div class="col-8">
-      <h2>{{pokemon.name | titlecase}}</h2>
+      <h3>#{{pokemon.id}} {{pokemon.name | titlecase}}</h3>
       <div class="types">
-        <span *ngFor="let type of pokemon.types" class="badge badge-success">
+        <span *ngFor="let type of pokemon.types" class="d-inline p-2 bg-primary text-white">
           {{type.type.name | titlecase}}
         </span>
       </div>
@@ -25,9 +25,6 @@
   </div>
 </div>
 
-<div class="text-center">
-  <img src="..." class="rounded" alt="...">
-</div>
 
 {{pokemonNr}}
 
