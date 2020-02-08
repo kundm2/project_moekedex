@@ -1,52 +1,9 @@
 <div class="sidebar">
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
-  <p>sidebar works!</p>
+  <ul *ngIf="listOfPokemon">
+    <li *ngFor="let pokemon of listOfPokemon.results">
+      <a routerLink="pokemon/{{getIdFromURL(pokemon.url)}}">
+        {{ pokemon.name | titlecase }}
+      </a>
+    </li>
+  </ul>
 </div>
