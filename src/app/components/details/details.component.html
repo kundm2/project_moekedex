@@ -1,26 +1,20 @@
 <div class="pokemon-wrapper" *ngIf="pokemon">
   <div class="row">
-    <div class="col">
-      <img src="https://projectpokemon.org/images/normal-sprite/{{pokemon.name.replace('-', '_')}}.gif"  alt="Sprite of {{pokemon.name | titlecase}}">
+    <div class="col-4 pokemon-sprite">
+      <img src="https://via.placeholder.com/250"  alt="Sprite of {{pokemon.name | titlecase}}" />
     </div>
     <div class="col-8">
-      <h3>#{{pokemon.id}} {{pokemon.name | titlecase}}</h3>
-      <div class="types">
-        <span *ngFor="let type of pokemon.types" class="d-inline p-2 bg-primary text-white">
-          {{type.type.name | titlecase}}
-        </span>
+      <div class="pokemon-name">
+        <div class="types">
+          <span *ngFor="let type of pokemon.types" class="d-inline p-2 text-white badge-{{type.type.name}}">
+            {{type.type.name | titlecase}}
+          </span>
+        </div>
+        <h3>#{{pokemon.id}} {{pokemon.name | titlecase}}</h3>
       </div>
     </div>
   </div>
   <div class="row">
-    <div class="col">
-      1 of 3
-    </div>
-    <div class="col">
-      2 of 3
-    </div>
-    <div class="col">
-      3 of 3
-    </div>
-  </div>
+    <p>{{getDescription(pokemonSpecies.flavor_text_entries)}}</p>
+ </div>
 </div>

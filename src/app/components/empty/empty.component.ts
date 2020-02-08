@@ -2,7 +2,13 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-empty',
-  templateUrl: './empty.component.html',
+  template: `
+  <div class="center-on-page">
+    <div class="pokeball">
+      <div class="pokeball__button"></div>
+    </div>
+  </div>
+  `,
   styleUrls: ['./empty.component.scss']
 })
 export class EmptyComponent implements OnInit {

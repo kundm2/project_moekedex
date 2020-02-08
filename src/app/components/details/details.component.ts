@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PokedexApiService } from 'src/app/services/pokedexapi.service';
 import { Pokemon } from 'src/app/classes/pokemon';
 import { PokemonSpecies } from 'src/app/classes/pokemon-species';
+import { FlavorTextEntries } from 'src/app/classes/flavor-text-entries';
 
 @Component({
   selector: 'app-details',
@@ -44,4 +45,10 @@ export class DetailsComponent implements OnInit {
     });
   }
 
+  getDescription(flavorTextEntries: FlavorTextEntries[]): string {
+    flavorTextEntries.forEach(function(value: FlavorTextEntries) {
+      console.log(value.language.name);
+    });
+    return '';
+  }
 }
