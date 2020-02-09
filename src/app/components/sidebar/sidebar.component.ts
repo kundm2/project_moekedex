@@ -5,7 +5,18 @@ import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
+  template: `
+  <div class="sidebar">
+    <ul *ngIf="listOfPokemon">
+      <li *ngFor="let pokemon of listOfPokemon.results">
+        <img src="https://projectpokemon.org/images/normal-sprite/{{pokemon.name.replace('-', '_')}}.gif"  alt="Sprite of {{pokemon.name | titlecase}}" style="width: 30px; height: auto;">
+        <a routerLink="pokemon/{{getIdFromURL(pokemon.url)}}">
+          {{ pokemon.name | titlecase }}
+        </a>
+      </li>
+    </ul>
+  </div>
+  `,
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
