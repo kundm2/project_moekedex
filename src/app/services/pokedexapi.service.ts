@@ -12,9 +12,7 @@ import { PokemonSpecies } from '../classes/pokemon-species';
 export class PokedexApiService {
 
   baseurl = 'https://pokeapi.co/api/v2/';
-
   constructor(private http: HttpClient) { }
-
 
   /**
    * Gets all Pokemon in the Pokedex

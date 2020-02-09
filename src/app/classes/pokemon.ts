@@ -1,5 +1,8 @@
 /* tslint:disable: variable-name */
 
+/**
+ * Pokemon class: describes a pokemon
+ */
 export class Pokemon {
   abilities: {
     ability: {

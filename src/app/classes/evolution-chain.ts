@@ -1,5 +1,8 @@
 /* tslint:disable: variable-name */
 
+/**
+ * Evolution chain: describes a pokemons evolution chain
+ */
 export class EvolutionChain {
   baby_trigger_item?: any;
   chain: {

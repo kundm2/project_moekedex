@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PokedexapiService } from './pokedexapi.service';
+import { PokedexApiService } from './pokedexapi.service';
 
-describe('PokedexapiService', () => {
+describe('PokedexApiService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: PokedexapiService = TestBed.get(PokedexapiService);
+    const service: PokedexApiService = TestBed.get(PokedexApiService);
     expect(service).toBeTruthy();
   });
 });

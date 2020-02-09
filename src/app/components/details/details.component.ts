@@ -13,8 +13,17 @@ import { faWeight, faArrowsAltV, faEgg, faMars, faVenus, faTransgenderAlt, faSmi
 })
 export class DetailsComponent implements OnInit {
 
+  /**
+   * Pokemon nr of details component
+   */
   pokemonNr: number;
+  /**
+   * Pokemon  of details component
+   */
   pokemon: Pokemon;
+  /**
+   * Pokemon species of details component
+   */
   pokemonSpecies: PokemonSpecies;
 
   // Icons
@@ -25,6 +34,11 @@ export class DetailsComponent implements OnInit {
   faVenus = faVenus;
   faSmileBeam = faSmileBeam;
 
+  /**
+   * Creates an instance of details component.
+   * @param pds
+   * @param route
+   */
   constructor(private pds: PokedexApiService, private route: ActivatedRoute) {
     this.loadData();
   }
@@ -37,6 +51,9 @@ export class DetailsComponent implements OnInit {
     );
   }
 
+  /**
+   * Loads data within constructor
+   */
   loadData(): void {
     this.route.params.subscribe( params => {
       this.pokemonNr = params.nr;
@@ -53,9 +70,12 @@ export class DetailsComponent implements OnInit {
     });
   }
 
+  /**
+   * Gets stat abbreviation
+   * @param stat
+   * @returns stat abbr
+   */
   getStatAbbr(stat: string): string {
-    console.log(stat);
-
     switch (stat) {
       case 'speed': return 'SPD'; break;
       case 'special-defense': return 'S.DEF'; break;

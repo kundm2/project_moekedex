@@ -1,5 +1,8 @@
 /* tslint:disable: variable-name */
 
+/**
+ * Pokemon species class: describes a pokemons species
+ */
 export class PokemonSpecies {
   base_happiness: number;
   capture_rate: number;
