@@ -1,20 +1,64 @@
-<div class="pokemon-wrapper" *ngIf="pokemon">
+<div class="pokemon-wrapper" *ngIf="pokemon && pokemonSpecies">
   <div class="row">
-    <div class="col-4 pokemon-sprite">
-      <img src="https://via.placeholder.com/250"  alt="Sprite of {{pokemon.name | titlecase}}" />
+    <div class="col-3 pokemon-sprite">
+      <img src="{{pokemon.sprites.front_default}}"  alt="Sprite of {{pokemon.name | titlecase}}" />
     </div>
-    <div class="col-8">
+    <div class="col-9">
       <div class="pokemon-name">
         <div class="types">
           <span *ngFor="let type of pokemon.types" class="d-inline p-2 text-white badge-{{type.type.name}}">
             {{type.type.name | titlecase}}
           </span>
         </div>
-        <h3>#{{pokemon.id}} {{pokemon.name | titlecase}}</h3>
+        <h3><span class="text-secondary">#{{pokemon.id}}</span> {{pokemon.name | titlecase}}</h3>
       </div>
     </div>
   </div>
-  <div class="row">
-    <p>{{getDescription(pokemonSpecies.flavor_text_entries)}}</p>
+
+  <div class="row px-3 py-2 bg-light pokemon-description">
+    <p *ngFor="let entry of pokemonSpecies.flavor_text_entries" class="{{entry.language.name}}-{{entry.version.name}}">
+      {{entry.flavor_text}}
+    </p>
+  </div>
+
+ <div class="row pokemon-stats">
+   <div class="col-6">
+    <table class="table table-sm">
+      <tbody>
+        <tr *ngFor="let stat of pokemon.stats">
+          <th scope="row" width="17%" class="text-secondary">{{getStatAbbr(stat.stat.name)}}</th>
+          <th scope="row" width="13%">{{stat.base_stat}}</th>
+          <td class="stat-progress-bar">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" [style.width]="(stat.base_stat/1.6)+'%'" attr.aria-valuenow="{{stat.base_stat}}" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+   </div>
+
+   <div class="col-6">
+    <table class="table table-md">
+      <tbody>
+        <tr>
+          <td scope="row" width="15%" align="center" class="text-secondary"><fa-icon [icon]="faWeight"></fa-icon></td>
+          <th>{{pokemon.weight / 10}} Kg</th>
+        </tr>
+        <tr>
+          <td scope="row" width="15%" align="center" class="text-secondary"><fa-icon [icon]="faArrowsAltV"></fa-icon></td>
+          <th>{{pokemon.height * 10}} cm</th>
+        </tr>
+        <tr>
+          <td scope="row" width="15%" align="center" class="text-secondary"><fa-icon [icon]="faEgg"></fa-icon></td>
+          <th><span *ngFor="let eggGroup of pokemonSpecies.egg_groups">{{eggGroup.name | titlecase}} </span></th>
+        </tr>
+        <tr>
+          <td scope="row" width="15%" align="center" class="text-secondary"><fa-icon [icon]="faSmileBeam"></fa-icon></td>
+          <th><span *ngFor="let eggGroup of pokemonSpecies.egg_groups">{{pokemonSpecies.base_happiness}} </span></th>
+        </tr>
+      </tbody>
+    </table>
+   </div>
  </div>
 </div>

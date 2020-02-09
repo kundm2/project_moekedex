@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PokedexApiService } from 'src/app/services/pokedexapi.service';
 import { Pokemon } from 'src/app/classes/pokemon';
 import { PokemonSpecies } from 'src/app/classes/pokemon-species';
-import { FlavorTextEntries } from 'src/app/classes/flavor-text-entries';
+import { faWeight, faArrowsAltV, faEgg, faMars, faVenus, faTransgenderAlt, faSmileBeam } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-details',
@@ -16,6 +16,14 @@ export class DetailsComponent implements OnInit {
   pokemonNr: number;
   pokemon: Pokemon;
   pokemonSpecies: PokemonSpecies;
+
+  // Icons
+  faWeight = faWeight;
+  faArrowsAltV = faArrowsAltV;
+  faEgg = faEgg;
+  faMars = faMars;
+  faVenus = faVenus;
+  faSmileBeam = faSmileBeam;
 
   constructor(private pds: PokedexApiService, private route: ActivatedRoute) {
     this.loadData();
@@ -45,10 +53,17 @@ export class DetailsComponent implements OnInit {
     });
   }
 
-  getDescription(flavorTextEntries: FlavorTextEntries[]): string {
-    flavorTextEntries.forEach(function(value: FlavorTextEntries) {
-      console.log(value.language.name);
-    });
-    return '';
+  getStatAbbr(stat: string): string {
+    console.log(stat);
+
+    switch (stat) {
+      case 'speed': return 'SPD'; break;
+      case 'special-defense': return 'S.DEF'; break;
+      case 'special-attack': return 'S.ATT'; break;
+      case 'defense': return 'DEF'; break;
+      case 'attack': return 'ATT'; break;
+      case 'hp': return 'HP'; break;
+      default: break;
+    }
   }
 }

@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-empty',
   template: `
   <div class="center-on-page">
+    <h5 style="margin-left: 20px;">Select a Pokemon</h5>
     <div class="pokeball">
       <div class="pokeball__button"></div>
     </div>

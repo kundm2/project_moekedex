@@ -1,5 +1,7 @@
 .pokemon-sprite {
-  width: 100%;
+  img {
+    width: 100%;
+  }
 }
 
 .pokemon-name {
@@ -7,5 +9,30 @@
 
   .types {
     margin-bottom: 20px;
+  }
+}
+
+.pokemon-description {
+  p {
+    margin: 0;
+    display: none;
+    &.en-ultra-sun {
+      display: block;
+    }
+    &.en-alpha-sapphire {
+      display: block;
+    }
+  }
+}
+
+.pokemon-stats {
+  table {
+    margin: 0;
+    td, th {
+      border: none;
+    }
+    td.stat-progress-bar {
+      padding-top: 18px;
+    }
   }
 }
