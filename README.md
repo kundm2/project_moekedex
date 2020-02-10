@@ -10,3 +10,7 @@
 ## Data
 - https://pokeapi.co/ (data)
 - https://projectpokemon.org/images/normal-sprite/ (sprites)
+
+
+## Preview
+![](./preview.png)
