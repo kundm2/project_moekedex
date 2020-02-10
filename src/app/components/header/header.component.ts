@@ -12,10 +12,13 @@ import { Component, OnInit } from '@angular/core';
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" routerLink="pokemon/1">Gen 1</a>
+            <a class="nav-link" routerLink="pokemon/1" (click)="scrollTo('pokemon-bulbasaur')">Gen 1</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" routerLink="pokemon/152">Gen 2</a>
+            <a class="nav-link" routerLink="pokemon/152" (click)="scrollTo('pokemon-chikorita')">Gen 2</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="pokemon/152" (click)="scrollTo('pokemon-torchic')">Gen 3</a>
           </li>
         </ul>
       </div>
@@ -29,6 +32,11 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  scrollTo(id: string): void {
+    const el = document.getElementById(id);
+    el.scrollIntoView();
   }
 
 }

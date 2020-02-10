@@ -8,7 +8,7 @@ import { Router, NavigationEnd } from '@angular/router';
   template: `
   <div class="sidebar">
     <ul *ngIf="listOfPokemon">
-      <li *ngFor="let pokemon of listOfPokemon.results">
+      <li *ngFor="let pokemon of listOfPokemon.results" id="pokemon-{{pokemon.name}}">
         <a routerLink="pokemon/{{getIdFromURL(pokemon.url)}}" routerLinkActive="selected">
           <img src="https://projectpokemon.org/images/normal-sprite/{{pokemon.name.replace('-', '_')}}.gif"  alt="Sprite of {{pokemon.name | titlecase}}" style="width: 30px; height: auto;">
           {{ pokemon.name | titlecase }}

@@ -19,7 +19,7 @@ export class PokedexApiService {
    * @returns Pokedex
    */
   getAll(): Observable<Pokedex> {
-    return this.getPokedexFrom(0, 151);
+    return this.getPokedexFrom(0, 386);
   }
 
   /**

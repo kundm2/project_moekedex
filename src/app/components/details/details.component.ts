@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PokedexApiService } from 'src/app/services/pokedexapi.service';
 import { Pokemon } from 'src/app/classes/pokemon';
 import { PokemonSpecies } from 'src/app/classes/pokemon-species';
-import { faWeight, faArrowsAltV, faEgg, faMars, faVenus, faTransgenderAlt, faSmileBeam } from '@fortawesome/free-solid-svg-icons';
+import { faDumbbell, faArrowsAltV, faEgg, faMars, faVenus, faTransgenderAlt, faSmileBeam } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-details',
@@ -12,7 +12,6 @@ import { faWeight, faArrowsAltV, faEgg, faMars, faVenus, faTransgenderAlt, faSmi
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
-
   /**
    * Pokemon nr of details component
    */
@@ -27,7 +26,7 @@ export class DetailsComponent implements OnInit {
   pokemonSpecies: PokemonSpecies;
 
   // Icons
-  faWeight = faWeight;
+  faDumbbell = faDumbbell;
   faArrowsAltV = faArrowsAltV;
   faEgg = faEgg;
   faMars = faMars;
@@ -49,6 +48,7 @@ export class DetailsComponent implements OnInit {
         this.pokemon = data;
       }
     );
+    this.scrollTo(this.pokemon.name);
   }
 
   /**
@@ -85,5 +85,10 @@ export class DetailsComponent implements OnInit {
       case 'hp': return 'HP'; break;
       default: break;
     }
+  }
+
+  scrollTo(id: string): void {
+    const el = document.getElementById('pokemon-' + id);
+    el.scrollIntoView();
   }
 }
